@@ -1,27 +1,29 @@
-# AngularTodoList
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
+# Angular Todo App
 
-## Development server
+Angular Todo App is a kind of app that generally used to maintain our day-to-day tasks or list everything that we have to do. It is helpful in planning our daily schedules. We can add more tasks at any time and strike out or delete a task that is completed. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Create (add) a new task or adding a new Todo in the Todo List App.
+- See all the tasks or View all the Todos that were added to the app.
+- Strike or Delete any ToDo from the list of Todos.
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Running Tests
 
-## Running unit tests
+To run tests, run the following command
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+  ng serve --open
+```
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Deployment
 
-## Further help
+To deploy this project run
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+  ng build
+```
