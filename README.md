@@ -1,7 +1,7 @@
 
 # Angular Todo App
 
-Angular Todo App is a kind of app that generally used to maintain our day-to-day tasks or list everything that we have to do. It is helpful in planning our daily schedules. We can add more tasks at any time and strike out or delete a task that is completed. 
+Angular Todo App is a kind of app that generally used to maintain our day-to-day tasks or list everything that we have to do. It is helpful in planning our daily schedules. We can add more tasks at any time and strike out or delete a task that is completed. View the hosted application [todo-app](https://zeel-gajrawala.github.io/todo-list-in-Angular/).
 
 
 ## Features
