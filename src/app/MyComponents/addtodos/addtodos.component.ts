@@ -7,21 +7,33 @@ import { Todo } from 'src/app/models/Todo';
   styleUrls: ['./addtodos.component.css']
 })
 export class AddtodosComponent implements OnInit {
-  title : string;
-  @Output() todoAdd : EventEmitter<Todo> = new EventEmitter();
+
+  title: string;
+  showError: boolean = false;
+  @Output() todoAdd: EventEmitter<Todo> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  addTodo(){
-    const todo = {
-      title : this.title,
-      active : true
+  inputChange() {
+    if (this.title && this.title.length > 0) {
+      this.showError = false;
     }
-    this.todoAdd.emit(todo);
-    this.title = '';
+  }
+
+  addTodo() {
+    if (this.title && this.title.length > 0) {
+      const todo = {
+        title: this.title,
+        active: true
+      }
+      this.todoAdd.emit(todo);
+      this.title = '';
+    } else {
+      this.showError = true;
+    }
   }
 
 }

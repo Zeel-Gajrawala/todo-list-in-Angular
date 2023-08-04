@@ -1,6 +1,27 @@
-<form (ngSubmit)="addTodo()" class="d-flex justify-content-between align-items-center mb-4">
+<form
+  (ngSubmit)="addTodo()"
+  class="d-flex justify-content-between align-items-center mb-4"
+>
   <div class="form-outline flex-fill">
-    <input type="text" class="form-control" [(ngModel)]="title" name="title" id="title" placeholder="Todos">
+    <input
+      data-testid="todo-input"
+      type="text"
+      class="form-control"
+      [(ngModel)]="title"
+      name="title"
+      id="title"
+      placeholder="Todos"
+      (input)="inputChange()"
+    />
+    <p
+      *ngIf="showError"
+      data-testid="todo-input-error"
+      class="alert-danger text-danger p-2 rounded me-2"
+    >
+      Please Enter Some Value
+    </p>
   </div>
-  <button type="submit" class="btn btn-light">Add</button>
+  <button data-testid="todo-input-submit" type="submit" class="btn btn-light">
+    Add
+  </button>
 </form>

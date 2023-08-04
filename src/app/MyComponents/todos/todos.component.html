@@ -1,10 +1,15 @@
 <app-addtodos (todoAdd)="addTodo($event)"></app-addtodos>
 
 <!--If Else Block-->
-<div class="text-center fs-2" *ngIf="this.todos.length === 0; else elseBlock">No Todos! Add Todos.</div>
+<div
+  class="text-center fs-2"
+  data-testid="empty-todo-list"
+  *ngIf="this.todos.length === 0; else elseBlock"
+>
+  No Todos! Add Todos.
+</div>
 <ng-template #elseBlock>
-
-  <table class="table text-white mb-0">
+  <table class="table text-white mb-0" data-testid="todo-list-table">
     <thead>
       <tr>
         <th scope="col">Check</th>
@@ -13,10 +18,11 @@
       </tr>
     </thead>
     <tbody *ngFor="let todo of todos">
-      <tr class="fw-normal">
+      <tr class="fw-normal" data-testid="todo-list-item">
         <td class="align-middle">
           <a href="#!" data-mdb-toggle="tooltip" title="Done">
             <input
+              data-testid="todo-input-checkbox"
               class="form-check-input me-2"
               type="checkbox"
               value=""
@@ -27,16 +33,29 @@
           </a>
         </td>
         <td class="align-middle">
-          <span class="text-capitalize" [ngClass]="{'strike' : !todo.active}">{{ todo.title }}</span>
+          <span
+            class="text-capitalize"
+            data-testid="todo-item"
+            [ngClass]="{ strike: !todo.active }"
+            >{{ todo.title }}</span
+          >
         </td>
         <td class="align-middle">
-          <a href="#!" data-mdb-toggle="tooltip" title="Remove">
-            
-            <img src="./assets/images/trash.png" (click)="todoDelete(todo)" alt="delete" width="30" />
+          <a
+            href="#!"
+            data-testid="todo-item-delete"
+            data-mdb-toggle="tooltip"
+            title="Remove"
+          >
+            <img
+              src="./assets/images/trash.png"
+              (click)="todoDelete(todo)"
+              alt="delete"
+              width="30"
+            />
           </a>
         </td>
       </tr>
     </tbody>
   </table>
-
 </ng-template>
