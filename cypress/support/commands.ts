@@ -41,3 +41,37 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+declare namespace Cypress {
+  interface Chainable {
+    /**
+     * Get one or more DOM elements by test id.
+     *
+     * @param id The test id
+     * @param options The same options as cy.get
+     */
+    getByTestId<E extends Node = HTMLElement>(
+      id: string,
+      options?: Partial<
+        Cypress.Loggable &
+          Cypress.Timeoutable &
+          Cypress.Withinable &
+          Cypress.Shadow
+      >
+    ): Cypress.Chainable<JQuery<E>>;
+  }
+}
+
+Cypress.Commands.add(
+  'getByTestId',
+  <E extends Node = HTMLElement>(
+    testId: string,
+    options?: Partial<
+      Cypress.Loggable &
+        Cypress.Timeoutable &
+        Cypress.Withinable &
+        Cypress.Shadow
+    >
+  ): Cypress.Chainable<JQuery<E>> =>
+    cy.get(`[data-testid="${testId}"]`, options)
+);
